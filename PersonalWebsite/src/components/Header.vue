@@ -14,7 +14,7 @@ const propicUrl = ref<string>(env.VITE_PROFILE_AVATAR_URL as string);
         <a-avatar 
             :src="propicUrl" 
             class="avatar"
-            :size=128
+            :size=200
         >
             <template #icon>
                 <AntDesignOutlined />
