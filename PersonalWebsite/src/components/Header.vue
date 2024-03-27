@@ -10,7 +10,7 @@ const propicUrl = ref<string>(env.VITE_PROFILE_AVATAR_URL as string);
 
 <template>
     <div class="header-container">
-        <a-typography-title level="1">Giorgio De Trane</a-typography-title>
+        <a-typography-title :level="1">Giorgio De Trane</a-typography-title>
         <a-avatar 
             :src="propicUrl" 
             class="avatar"
