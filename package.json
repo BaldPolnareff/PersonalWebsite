@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "@supabase/supabase-js": "^2.40.0",
+    "ant-design-vue": "^4.1.2",
+    "supabase": "^1.151.1"
+  }
+}
