@@ -1,7 +1,7 @@
 type CVItem = {
     role: string;
     company: string;
-    startDate: string;
+    startDate?: string;
     endDate?: string;
     description?: string;
     location?: string;
@@ -13,6 +13,7 @@ type PublicationItem = {
     authors: string;
     journal: string;
     doi: string;
+    abstract?: string;
 }
 
 export type { CVItem, PublicationItem };

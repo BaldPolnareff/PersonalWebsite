@@ -13,21 +13,9 @@ const props = defineProps<{
 <template>
     <div class="work-experience-list">
         <a-list item-layout="vertical">
-            <h3>{{props.CVItem.startDate + "-" + props.CVItem.endDate + "   " + props.CVItem.role }}</h3>
-            <h4>{{props.CVItem.company}}</h4>
+            <h3>{{ props.CVItem.endDate + ' '}} {{ props.CVItem.role }}</h3>
+            <h4>{{ props.CVItem.company }} - {{ props.CVItem.location }}</h4>
             <br>
-            <div class="description-container" v-if="props.CVItem.description">
-                <p>
-                    {{props.CVItem.description}}
-                </p>
-            </div>
-            <div class="detailed-description-container" v-if="props.CVItem.detailedDescription">
-                <ul>
-                    <li v-for="description in props.CVItem.detailedDescription" :key="description">
-                        {{description}}
-                    </li>
-                </ul>
-            </div>
         </a-list>
     </div>
 </template>
