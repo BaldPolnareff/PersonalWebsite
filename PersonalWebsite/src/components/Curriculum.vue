@@ -1,9 +1,10 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import { CaretRightOutlined } from '@ant-design/icons-vue';
+import { CaretRightOutlined, CodeOutlined, BookOutlined, ExperimentOutlined, LaptopOutlined } from '@ant-design/icons-vue';
 import WorkExperienceAList from '@/components/CVListComponents/WorkExperienceAList.vue';
 import type { CVItem } from '@/utils/types';
 
+const iconStyle: string = 'color: aliceblue; font-size: 24px';
 const activeKey = ref<string[]>(['1', '2', '3', '4']);
 const WorkExperiences = ref<CVItem[]>([
     {
@@ -39,6 +40,9 @@ const WorkExperiences = ref<CVItem[]>([
             <CaretRightOutlined :rotate="isActive ? 90 : 0" :style="'color: aliceblue;'"/>
         </template>
             <a-collapse-panel key="1">
+                <template #extra>
+                    <CodeOutlined  :style="iconStyle"/>
+                </template>
                 <template #header>
                     <h3>Work Experience</h3>
                 </template>
@@ -47,18 +51,27 @@ const WorkExperiences = ref<CVItem[]>([
                     </div>
             </a-collapse-panel>
             <a-collapse-panel key="2">
+                <template #extra>
+                    <BookOutlined :style="iconStyle"/>
+                </template>
                 <template #header>
                     <h3>Education</h3>
                 </template>
                 <p>Education</p>
             </a-collapse-panel>
             <a-collapse-panel key="3">
+                <template #extra>
+                    <ExperimentOutlined :style="iconStyle"/>
+                </template>
                 <template #header>
                     <h3>Publications</h3>
                 </template>
                 <p>Publications</p>
             </a-collapse-panel>
             <a-collapse-panel key="4">
+                <template #extra>
+                    <LaptopOutlined :style="iconStyle"/>
+                </template>
                 <template #header>
                     <h3>Computer Skills</h3>
                 </template>
