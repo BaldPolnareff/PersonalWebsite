@@ -1,8 +1,30 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import { CaretRightOutlined } from '@ant-design/icons-vue';
+import WorkExperienceAList from '@/components/CVListComponents/WorkExperienceAList.vue';
+import type { CVItem } from '@/utils/types';
 
 const activeKey = ref<string[]>(['1', '2', '3', '4']);
+const WorkExperiences = ref<CVItem[]>([
+    {
+        role: 'Data Science Intern',
+        company: 'RUAG Space',
+        startDate: '08/2023',
+        endDate: '03/2024',
+        detailedDescription: [
+            `Developed a data validation and paperless reporting pipeline using Pydantic and Pylatex, 
+            reducing the time spent on producing reports from weeks to only a few instants.`,
+            `Developed an interactive dashboard using Vue.js, FastAPI and SQLAlchemy, moving 70% 
+            of the data analysis from Excel spreadsheets to a more efficient and user-friendly environment.`,
+            `Introduced Poetry for dependency management in Python projects, significantly increasing 
+            the team productivity.`, 
+            `Worked with Sideeffects.ch's VR software suite, and developed a virtual training environment 
+            on the Meta Quest 3 that automated 100% of the assembly procedure documentation, reducing the 
+            time needed for training by 50%`
+        ]
+    }
+]);
+    
 </script>
 
 <template>
@@ -20,7 +42,9 @@ const activeKey = ref<string[]>(['1', '2', '3', '4']);
                 <template #header>
                     <h3>Work Experience</h3>
                 </template>
-                <p>Work Experience</p>
+                    <div class="cv-items-container">
+                        <WorkExperienceAList v-for="workExperience in WorkExperiences" :key="workExperience.role" :CVItem="workExperience" />
+                    </div>
             </a-collapse-panel>
             <a-collapse-panel key="2">
                 <template #header>
@@ -46,6 +70,7 @@ const activeKey = ref<string[]>(['1', '2', '3', '4']);
 
 <style scoped>
 .cv-container {
+    display: flex;
     margin-top: 10px;
     justify-content: space-between;
     align-items: center;
@@ -53,7 +78,7 @@ const activeKey = ref<string[]>(['1', '2', '3', '4']);
 }
 
 .collapse {
-    background-color: rgb(26, 26, 26);
+    background-color: inherit;
 }
 
 .collapse .ant-collapse-item {
