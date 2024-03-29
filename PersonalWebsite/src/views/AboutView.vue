@@ -1,15 +1,24 @@
+<script setup lang="ts">
+import Header from '@/components/Header.vue';
+</script>
+
 <template>
-  <div class="about">
-    <h1>This is an about page</h1>
-  </div>
+  <main>
+    <Header></Header>
+    <br>
+    <div class="about">
+      <h1>This is an about page</h1>
+    </div>
+  </main>
 </template>
 
 <style>
-@media (min-width: 1024px) {
-  .about {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-  }
+.about {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #282c34;
+  color: white;
 }
 </style>

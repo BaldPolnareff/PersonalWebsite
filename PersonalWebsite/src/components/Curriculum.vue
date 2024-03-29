@@ -124,14 +124,17 @@ const Publications = ref<PublicationItem[]>([
 
 <style scoped>
 .cv-container {
-    margin-top: 10px;
+    margin-top: 30px;
+    margin-bottom: 20px;
     justify-content: space-between;
     align-items: center;
     padding: 0 200px;
+    background-color: #282c34;
 }
 
 .collapse {
     background-color: inherit;
+    padding-top: 20px;
 }
 
 .collapse .ant-collapse-item {

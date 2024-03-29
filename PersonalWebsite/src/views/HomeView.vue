@@ -9,3 +9,12 @@ import Curriculum from '@/components/Curriculum.vue';
     <Curriculum></Curriculum>
   </main>
 </template>
+
+<style scoped>
+
+main {
+  padding-top: 20px;
+}
+
+
+</style>
