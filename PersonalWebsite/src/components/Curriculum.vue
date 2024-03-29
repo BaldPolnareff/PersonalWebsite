@@ -4,6 +4,7 @@ import { CaretRightOutlined, CodeOutlined, BookOutlined, ExperimentOutlined, Lap
 import WorkExperienceAList from '@/components/CVListComponents/WorkExperienceAList.vue';
 import EducationAList from '@/components/CVListComponents/EducationAList.vue';
 import PublicationsAList from '@/components/CVListComponents/PublicationsAList.vue';
+import ComputerSkillsAList from '@/components/CVListComponents/ComputerSkillsAList.vue';
 import type { PublicationItem, CVItem } from '@/utils/types';
 
 const iconStyle: string = 'color: aliceblue; font-size: 35px';
@@ -115,7 +116,7 @@ const Publications = ref<PublicationItem[]>([
                 <template #header>
                     <h1>Computer Skills</h1>
                 </template>
-                <p>Computer Skills</p>
+                <ComputerSkillsAList />
             </a-collapse-panel>
         </a-collapse>
     </div>

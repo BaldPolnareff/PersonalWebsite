@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { StarOutlined, LikeOutlined, MessageOutlined } from '@ant-design/icons-vue';
 import { defineProps } from 'vue';
 import type { CVItem } from '@/utils/types';
 
