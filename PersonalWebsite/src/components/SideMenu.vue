@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import { CaretRightOutlined } from '@ant-design/icons-vue';
+import { CaretRightOutlined, BookOutlined, SolutionOutlined, UserOutlined } from '@ant-design/icons-vue';
 import { RouterLink } from 'vue-router';
 
 const open = ref<boolean>(false);
@@ -38,8 +38,14 @@ function onClose() {
             class="drawer"
         >
         <div class="drawer-content-wrapper">
-            <RouterLink to="/home">Resume</RouterLink>
-            <RouterLink to="/about">About me</RouterLink>
+            <RouterLink to="/home">
+                <SolutionOutlined />
+                Resume
+            </RouterLink>
+            <RouterLink to="/about">
+                <UserOutlined />
+                About me
+            </RouterLink>
         </div>
     </a-drawer>
     </div>
