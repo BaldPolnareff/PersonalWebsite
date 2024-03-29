@@ -1,6 +1,14 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import { CaretRightOutlined, BookOutlined, SolutionOutlined, UserOutlined } from '@ant-design/icons-vue';
+import { 
+    CaretRightOutlined, 
+    BookOutlined, 
+    SolutionOutlined, 
+    UserOutlined, 
+    SmileOutlined, 
+    CodeOutlined, 
+    ContactsOutlined
+} from '@ant-design/icons-vue';
 import { RouterLink } from 'vue-router';
 
 const open = ref<boolean>(false);
@@ -46,6 +54,18 @@ function onClose() {
                 <UserOutlined />
                 About me
             </RouterLink>
+            <RouterLink to="/blender-artwork">
+                <SmileOutlined />
+                Blender Artwork
+            </RouterLink>
+            <RouterLink to="/procedural-artwork">
+                <CodeOutlined />
+                Procedural Artwork
+            </RouterLink>
+            <RouterLink to="/contact">
+                <ContactsOutlined />
+                Contact me
+            </RouterLink>
         </div>
     </a-drawer>
     </div>
@@ -57,7 +77,6 @@ function onClose() {
     position: fixed;
     top: 50%;
     left: 0;
-    transform: translateY(-50%);
     z-index: 1000;
 }
 
@@ -71,16 +90,23 @@ function onClose() {
     padding: 15px;
 }
 
+.show-drawer-btn:hover {
+    background-color: #00000000;
+    transform: scale(1.01);
+}
+
 .drawer-content-wrapper {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: left;
+    padding: 15px;
 }
 
 a {
     color: #fff;
     font-size: 30px;
+    margin-bottom: 10px;
 }
 
 a:hover {

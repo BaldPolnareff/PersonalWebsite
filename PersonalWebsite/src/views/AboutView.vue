@@ -5,6 +5,7 @@ import Header from '@/components/Header.vue';
 <template>
   <main>
     <Header></Header>
+    <br>
     <div class="about">
       <h1>This is an about page</h1>
     </div>
