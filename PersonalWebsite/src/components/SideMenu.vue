@@ -1,8 +1,13 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import { CaretRightOutlined } from '@ant-design/icons-vue';
+import { RouterLink } from 'vue-router';
 
 const open = ref<boolean>(false);
+const drawerStyle = `{
+    backgroundColor: '#282c34',
+    color: '#fff',
+};`
 
 function showDrawer() {
     open.value = true;
@@ -24,15 +29,18 @@ function onClose() {
     </div>
     <div class="container">
         <a-drawer
-            title="Basic Drawer"
             placement="left"
             :closable="false"
             :open="open"
             :get-container="false"
-            :style="{ position: 'absolute' }"
+            :style="{ position: 'absolute', backgroundColor: '#1A1A1A', color: '#fff'}"
             @close="onClose"
+            class="drawer"
         >
-        <p>Some contents...</p>
+        <div class="drawer-content-wrapper">
+            <RouterLink to="/home">Resume</RouterLink>
+            <RouterLink to="/about">About me</RouterLink>
+        </div>
     </a-drawer>
     </div>
 </template>
@@ -55,5 +63,22 @@ function onClose() {
 .show-drawer-btn {
     position: fixed;
     padding: 15px;
+}
+
+.drawer-content-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+a {
+    color: #fff;
+    font-size: 30px;
+}
+
+a:hover {
+    color: #d186ff;
+    transform: scale(1.01);
 }
 </style>
