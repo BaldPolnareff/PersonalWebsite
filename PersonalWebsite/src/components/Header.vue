@@ -1,10 +1,17 @@
 <script setup lang="ts">
 import { ref, defineProps } from 'vue';
 import { supabase } from '@/utils/supabase';
-import { AntDesignOutlined } from '@ant-design/icons-vue';
+import { AntDesignOutlined, LinkedinOutlined, GithubOutlined, MailOutlined } from '@ant-design/icons-vue';
 
 const env = import.meta.env;
 const propicUrl = ref<string>(env.VITE_PROFILE_AVATAR_URL as string);
+
+const LinkedinmouseHover = ref<boolean>(false);
+const GithubmouseHover = ref<boolean>(false);
+const MailmouseHover = ref<boolean>(false);
+
+const iconStyle = 'color: aliceblue; font-size: 3.5rem;';
+const iconStyleOnHover = 'color: #d88fff; font-size: 3.5rem; transform: scale(1.1); mouse: pointer;';
 
 </script>
 
@@ -21,6 +28,23 @@ const propicUrl = ref<string>(env.VITE_PROFILE_AVATAR_URL as string);
             </template>
         </a-avatar>
         <h3>Software Developer</h3>
+        <div class="social-wrapper">
+            <LinkedinOutlined 
+                :style="LinkedinmouseHover ? iconStyleOnHover : iconStyle" 
+                @mouseover="LinkedinmouseHover=true"
+                @mouseleave="LinkedinmouseHover=false"
+            />
+            <GithubOutlined 
+                :style="GithubmouseHover ? iconStyleOnHover : iconStyle"
+                @mouseover="GithubmouseHover=true"
+                @mouseleave="GithubmouseHover=false"
+            />
+            <MailOutlined 
+                :style="MailmouseHover ? iconStyleOnHover : iconStyle"
+                @mouseover="MailmouseHover=true"
+                @mouseleave="MailmouseHover=false"    
+            />
+        </div>
     </div>
 </template>
 
@@ -40,6 +64,14 @@ const propicUrl = ref<string>(env.VITE_PROFILE_AVATAR_URL as string);
 
 h1 {
     color: aliceblue;
+}
+
+.social-wrapper {
+    margin-top: 1.4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
 }
 
 </style>
