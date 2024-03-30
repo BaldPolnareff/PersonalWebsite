@@ -12,10 +12,11 @@ import {
 import { RouterLink } from 'vue-router';
 
 const open = ref<boolean>(false);
-const drawerStyle = `{
-    backgroundColor: '#282c34',
-    color: '#fff',
-};`
+
+const caretRightOutlinedStyle = 'font-size: 2rem; color: #fff'; 
+const caretRightOutlinedStyleHover = 'font-size: 2rem; color: #d186ff; transform: scale(1.3); cursor: pointer;';
+
+const caretRightOutlinedHover = ref<boolean>(false);
 
 function showDrawer() {
     open.value = true;
@@ -31,7 +32,9 @@ function onClose() {
     <div class="button-container">
         <a-button @click="showDrawer" type="text" size="large" class="show-drawer-btn">
             <CaretRightOutlined 
-                style="font-size: 2rem; color: #fff;"
+                :style="caretRightOutlinedHover ? caretRightOutlinedStyleHover : caretRightOutlinedStyle"
+                @mouseover="caretRightOutlinedHover=true"
+                @mouseleave="caretRightOutlinedHover=false"
             />
         </a-button>
     </div>

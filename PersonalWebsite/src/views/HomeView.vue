@@ -13,7 +13,7 @@ import Curriculum from '@/components/Curriculum.vue';
 <style scoped>
 
 main {
-  padding-top: 20px;
+  padding-top: 30px;
 }
 
 
