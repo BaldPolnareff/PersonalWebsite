@@ -5,17 +5,23 @@ import Header from '@/components/Header.vue';
 <template>
   <main>
     <Header></Header>
-    <br>
     <div class="about">
-      <h1>This is an about page</h1>
+      <br>
+      <h1>About me</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet a assumenda voluptatem impedit dolores maxime id corrupti quidem inventore consectetur.</p>
     </div>
   </main>
 </template>
 
 <style>
+br {
+  margin-top: 30px;
+}
 .about {
   display: flex;
-  justify-content: center;
+  margin-top: 30px;
+  gap: 20px;
+  flex-direction: column;
   align-items: center;
   height: 100vh;
   background-color: #282c34;
