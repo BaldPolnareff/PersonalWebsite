@@ -44,7 +44,7 @@ function onClose() {
             :closable="false"
             :open="open"
             :get-container="false"
-            :style="{ position: 'absolute', backgroundColor: '#1A1A1A', color: '#fff'}"
+            :style="{ position: 'relative', backgroundColor: '#1A1A1A', color: '#fff', height: '100%'}"
             @close="onClose"
             class="drawer"
         >
