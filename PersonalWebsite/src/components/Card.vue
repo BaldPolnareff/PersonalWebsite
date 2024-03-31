@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, defineProps } from 'vue';
-import CardHoverMessage from './CardHoverMessage.vue';
 import VLazyImage from 'v-lazy-image';
+import { FileImageOutlined } from '@ant-design/icons-vue';
 
 const hoverMessage: string = 'Full res'; 
 
@@ -9,6 +9,8 @@ const props = defineProps<{
     isLoading: boolean;
     imgUrl: string;
 }>();
+
+const showHoverMessage = ref<boolean>(false);
 </script>
 
 <template>
@@ -19,8 +21,10 @@ const props = defineProps<{
             src-placeholder="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Suzanne.png/640px-Suzanne.png"
             alt="Blender Artwork" 
             :title="hoverMessage"
+            @mouseover="showHoverMessage = true"
+            @mouseleave="showHoverMessage = false"
         />
-        <a-spin v-else />
+        <FileImageOutlined class="child" v-if="showHoverMessage"/>
     </main>
 </template>
 
@@ -30,8 +34,22 @@ const props = defineProps<{
     width: 400px;
     height: 400px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.child {
+    position: relative;
+    z-index: 1000;
+    width: 400px;
+    top: -200px;
+    left: 0;
+    font-size: 3rem;
+}
+
+.child:hover {
+    cursor: pointer;
 }
 
 .v-lazy-image {
@@ -49,9 +67,8 @@ const props = defineProps<{
 }
 
 .v-lazy-image:hover {
-    filter: blur(0);
+    filter: blur(10px);
     cursor: pointer;
     box-shadow: 0 0 10px rgba(207, 207, 207, 0.5);
-    transform: scale(1.05);
 }
 </style>
