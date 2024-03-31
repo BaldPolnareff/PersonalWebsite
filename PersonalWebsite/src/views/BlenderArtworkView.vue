@@ -29,7 +29,7 @@ async function fetchImages(): Promise<void> {
             const { data: publicUrl } = await supabase 
                 .storage
                 .from('blender_gallery')
-                .getPublicUrl(imagesNames[i]);
+                .getPublicUrl(`jpeg/${imagesNames[i]}`);
 
             if (publicUrl) {
                 imageUrls.value.push(publicUrl.publicUrl);
@@ -56,6 +56,9 @@ onMounted( async () => {
         <div class="gallery-container">
             <h1>Blender Artwork</h1>
             <p>Here's some of the artwork I created in Blender, you can get them in full res.</p>
+            <div class="image-gallery-container">
+                <p v-for="url in imageUrls">{{ url }}</p>
+            </div>
         </div>
     </main>
 </template>
