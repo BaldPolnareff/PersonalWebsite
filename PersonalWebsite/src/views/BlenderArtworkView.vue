@@ -60,7 +60,7 @@ onMounted( async () => {
     <main>
         <div class="gallery-container">
             <h1>Blender Artwork</h1>
-            <p>Here's some of the artwork I created in Blender, you can get them in full res.</p>
+            <p>Here's some of the artwork I created in Blender, you can get click each image for the full res.</p>
         </div>
             <div 
                 class="image-gallery-container"
@@ -95,6 +95,7 @@ onMounted( async () => {
     justify-content: center;
     grid-template-columns: repeat(2, 0.05fr); /* Set 3 columns with equal width */
     margin-top: 50px;
-    padding: 100px 0 30px 30px;
+    margin-left: 80px;
+    padding: 100px 50px 30px 30px;
 }
 </style>
