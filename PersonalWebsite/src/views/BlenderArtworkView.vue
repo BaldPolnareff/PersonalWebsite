@@ -56,21 +56,48 @@ onMounted( async () => {
         <div class="gallery-container">
             <h1>Blender Artwork</h1>
             <p>Here's some of the artwork I created in Blender, you can get them in full res.</p>
-            <div class="image-gallery-container">
-                <p v-for="url in imageUrls">{{ url }}</p>
-            </div>
         </div>
+            <div 
+                class="image-gallery-container"
+                v-for="url in imageUrls"
+                :key="url"
+            >
+                <img :src="url" alt="">
+            </div>
     </main>
 </template>
 
 <style scoped>
-    .gallery-container {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        background-color: #282c34;
-        color: white;
-    }
+.gallery-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #282c34;
+    color: white;
+    padding: 40px;
+}
+
+.image-gallery-container {
+    display: inline-grid;
+    align-items: center;
+    justify-content: center;
+    grid-template-columns: repeat(2, 0.05fr); /* Set 3 columns with equal width */
+    margin-top: 50px;
+    padding: 100px 0 30px 30px;
+}
+
+img {
+    width: 400px;
+    height: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+img:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(207, 207, 207, 0.5);
+    filter: blur(5px);
+}
 </style>
