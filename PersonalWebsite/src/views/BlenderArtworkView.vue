@@ -60,7 +60,7 @@ onMounted( async () => {
     <main>
         <div class="gallery-container">
             <h1>Blender Artwork</h1>
-            <p>Here's some of the artwork I created in Blender, you can get click each image for the full res.</p>
+            <p>Here's some of the artwork I created in Blender, you can click each image for the full res.</p>
         </div>
             <div 
                 class="image-gallery-container"

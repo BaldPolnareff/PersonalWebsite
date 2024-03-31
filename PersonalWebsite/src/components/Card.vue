@@ -15,16 +15,19 @@ const showHoverMessage = ref<boolean>(false);
 
 <template>
     <main class="content-wrapper">
-        <VLazyImage 
-            v-if="!props.isLoading" 
-            :src="props.imgUrl"
-            src-placeholder="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Suzanne.png/640px-Suzanne.png"
-            alt="Blender Artwork" 
-            :title="hoverMessage"
-            @mouseover="showHoverMessage = true"
-            @mouseleave="showHoverMessage = false"
-        />
-        <FileImageOutlined class="child" v-if="showHoverMessage"/>
+        <a-tooltip>
+            <template #title>
+                {{ hoverMessage }}
+            </template>
+            <VLazyImage 
+                v-if="!props.isLoading" 
+                :src="props.imgUrl"
+                src-placeholder="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Suzanne.png/640px-Suzanne.png"
+                alt="Blender Artwork" 
+                @mouseover="showHoverMessage = true"
+                @mouseleave="showHoverMessage = false"
+            />
+        </a-tooltip>
     </main>
 </template>
 
@@ -39,19 +42,6 @@ const showHoverMessage = ref<boolean>(false);
     align-items: center;
 }
 
-.child {
-    position: relative;
-    z-index: 1000;
-    width: 400px;
-    top: -200px;
-    left: 0;
-    font-size: 3rem;
-}
-
-.child:hover {
-    cursor: pointer;
-}
-
 .v-lazy-image {
     width: 400px;
     height: 400px;
@@ -59,7 +49,7 @@ const showHoverMessage = ref<boolean>(false);
     object-fit: cover;
     filter: blur(5px);
     will-change: filter;
-    transition: filter 0.9s;
+    transition: filter 0.7s;
 }
 
 .v-lazy-image-loaded {
