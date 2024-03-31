@@ -1,11 +1,16 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
 import { supabase } from '@/utils/supabase';
+import Card from '@/components/Card.vue';
 
 const imageUrls = ref<string[]>([]);
 const errorMessage = ref<string>('');
 const loadingImages = ref<boolean>(true);
 const loadingImage = ref<boolean>(false);
+
+function openImage(url: string): void {
+    window.open(url, '_blank', 'noopener,noreferrer');
+}
 
 async function fetchImages(): Promise<void> {
     const imagesNames: string[] = [];
@@ -62,7 +67,13 @@ onMounted( async () => {
                 v-for="url in imageUrls"
                 :key="url"
             >
-                <img :src="url" alt="">
+                <Card 
+                    v-if="!loadingImages"
+                    :isLoading="loadingImage"
+                    :imgUrl="url"
+                    @click="openImage(url)"
+                />
+                <a-spin v-else />
             </div>
     </main>
 </template>
@@ -85,19 +96,5 @@ onMounted( async () => {
     grid-template-columns: repeat(2, 0.05fr); /* Set 3 columns with equal width */
     margin-top: 50px;
     padding: 100px 0 30px 30px;
-}
-
-img {
-    width: 400px;
-    height: 100%;
-    border-radius: 10px;
-    object-fit: cover;
-}
-
-img:hover {
-    transform: scale(1.05);
-    cursor: pointer;
-    box-shadow: 0 0 10px rgba(207, 207, 207, 0.5);
-    filter: blur(5px);
 }
 </style>
