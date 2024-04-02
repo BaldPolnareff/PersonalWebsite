@@ -13,7 +13,7 @@ const WorkExperiences = ref<CVItem[]>([
     {
         role: 'Data Science Intern',
         company: 'RUAG Space',
-        startDate: '08/2023',
+        startDate: '09/2023',
         endDate: '03/2024',
         detailedDescription: [
             `Developed a data validation and paperless reporting pipeline using Pydantic and Pylatex, 
