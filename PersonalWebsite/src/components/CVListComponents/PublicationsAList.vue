@@ -8,7 +8,6 @@ const iconStyle = 'color: aliceblue; font-size: 1.2rem;';
 const props = defineProps<{
     publication: PublicationItem;
 }>();
-    
 </script>
 
 

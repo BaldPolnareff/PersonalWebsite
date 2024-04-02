@@ -5,14 +5,18 @@ import WorkExperienceAList from '@/components/CVListComponents/WorkExperienceALi
 import EducationAList from '@/components/CVListComponents/EducationAList.vue';
 import PublicationsAList from '@/components/CVListComponents/PublicationsAList.vue';
 import ComputerSkillsAList from '@/components/CVListComponents/ComputerSkillsAList.vue';
+import CompanyLogo from '@/components/CVListComponents/CompanyLogo.vue';
 import type { PublicationItem, CVItem } from '@/utils/types';
 
+const envs = import.meta.env;
 const iconStyle: string = 'color: aliceblue; font-size: 35px';
 const activeKey = ref<string[]>(['1', '2', '3', '4']);
 const WorkExperiences = ref<CVItem[]>([
     {
         role: 'Data Science Intern',
-        company: 'RUAG Space',
+        company: 'RUAG Space (Beyond Gravity)',
+        location: 'Zurich (CH)',
+        companyLogoUrl: envs.VITE_RUAG_LOGO_URL,
         startDate: '09/2023',
         endDate: '03/2024',
         detailedDescription: [
@@ -33,12 +37,14 @@ const Education = ref<CVItem[]>([
     {
         role: 'MSc in Aerospace Engineering',
         company: 'Polytechnic University of Turin',
+        companyLogoUrl: envs.VITE_POLITO_LOGO_URL,
         endDate: '2022',
         location: 'Turin (IT)'
     }, 
     {
         role: 'BSc in Aerospace Engineering',
         company: 'Polytechnic University of Turin',
+        companyLogoUrl: envs.VITE_POLITO_LOGO_URL,
         endDate: '2019',
         location: 'Turin (IT)'
     }
@@ -86,6 +92,9 @@ const Publications = ref<PublicationItem[]>([
                     <h1>Work Experience</h1>
                 </template>
                     <div class="cv-items-container">
+                        <div class="div" v-for="workExperience in WorkExperiences" :key="workExperience.role">
+                            <CompanyLogo v-if="workExperience.companyLogoUrl" :logoUrl="workExperience.companyLogoUrl"/>
+                        </div>
                         <WorkExperienceAList v-for="workExperience in WorkExperiences" :key="workExperience.role" :CVItem="workExperience" />
                     </div>
             </a-collapse-panel>
@@ -97,6 +106,9 @@ const Publications = ref<PublicationItem[]>([
                     <h1>Education</h1>
                 </template>
                     <div class="cv-items-container">
+                        <div>
+                            <CompanyLogo v-if="Education[0].companyLogoUrl" :logoUrl="Education[0].companyLogoUrl"/>
+                        </div>
                         <EducationAList v-for="education in Education" :key="education.role" :CVItem="education" />
                     </div>
             </a-collapse-panel>
