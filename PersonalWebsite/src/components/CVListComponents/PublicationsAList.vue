@@ -19,7 +19,7 @@ const props = defineProps<{
             <h4>{{ props.publication.journal }}</h4>
             <div class="doi-wrapper">
                 <LinkOutlined :style="iconStyle"/>
-                <a :href="'https://' + props.publication.doi">{{ props.publication.doi }}</a>
+                <a :href="'https://' + props.publication.doi" target="_blank" rel="noopener noreferrer">{{ props.publication.doi }}</a>
             </div>
             <h5>{{props.publication.authors}}</h5>
             <br>
