@@ -9,6 +9,7 @@
             <ul>
                 <li style="font-weight: bold;">Python</li>
                 <li style="font-weight: bold;">Typescript</li>
+                <li style="font-weight: bold;">Javascript</li>
                 <li>GNU Octave</li>
                 <li>MATLAB</li>
             </ul>
