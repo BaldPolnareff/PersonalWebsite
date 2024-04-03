@@ -16,5 +16,14 @@ main {
   padding-top: 30px;
 }
 
+@media screen and (max-width: 1024px){
+  main {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+}
 
 </style>

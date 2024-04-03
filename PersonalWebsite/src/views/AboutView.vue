@@ -4,7 +4,7 @@ import Header from '@/components/Header.vue';
 
 <template>
   <main>
-    <Header></Header>
+    <Header class="header"></Header>
     <div class="about">
       <br>
       <h1>About me</h1>
@@ -60,5 +60,27 @@ p {
   height: 100vh;
   background-color: #282c34;
   color: white;
+}
+
+@media screen and (max-width: 1024px){
+  .about {
+    padding: 0;
+    padding-top: 30px;
+    padding-bottom: 50px;
+    margin: 0;
+    gap: 0;
+    height: auto;
+  }
+  p {
+    margin: 0 10%;
+  }
+
+  h1 {
+    margin-top: 30px;
+  }
+
+  .header {
+    margin-bottom: 30px;
+  }
 }
 </style>
