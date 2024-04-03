@@ -1,8 +1,10 @@
 {
   "dependencies": {
+    "@hapi/hapi": "^21.3.7",
     "@supabase/supabase-js": "^2.40.0",
     "ant-design-vue": "^4.1.2",
     "axios": "^1.6.8",
+    "dotenv": "^16.4.5",
     "glslCanvas": "^0.2.6",
     "supabase": "^1.151.1",
     "v-lazy-image": "^2.1.1"
