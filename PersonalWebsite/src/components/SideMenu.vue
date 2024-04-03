@@ -18,6 +18,7 @@ const caretRightOutlinedStyleHover = 'font-size: 2rem; color: #d186ff; transform
 
 const caretRightOutlinedHover = ref<boolean>(false);
 
+
 function showDrawer() {
     open.value = true;
 }
@@ -29,19 +30,41 @@ function onClose() {
 </script>
 
 <template>
-    <div class="button-container">
-        <a-button @click="showDrawer" type="text" size="large" class="show-drawer-btn">
+    <div class="top-nav-bar">
+        <RouterLink to="/home">
+                <SolutionOutlined />
+                Resume
+            </RouterLink>
+            <RouterLink to="/about">
+                <UserOutlined />
+                About me
+            </RouterLink>
+            <RouterLink to="/blender-artwork">
+                <SmileOutlined />
+                Blender Artwork
+            </RouterLink>
+            <RouterLink to="/procedural-artwork">
+                <CodeOutlined />
+                Procedural Artwork
+            </RouterLink>
+            <RouterLink to="/contact">
+                <ContactsOutlined />
+                Contact me
+            </RouterLink>
+    </div>
+    <div class="drawer-indicator-bar" @click="showDrawer">
+        <button class="show-drawer-btn">
             <CaretRightOutlined 
+                @onmouseenter="caretRightOutlinedHover = true" 
+                @onmouseleave="caretRightOutlinedHover = false"
                 :style="caretRightOutlinedHover ? caretRightOutlinedStyleHover : caretRightOutlinedStyle"
-                @mouseover="caretRightOutlinedHover=true"
-                @mouseleave="caretRightOutlinedHover=false"
             />
-        </a-button>
+        </button>
     </div>
     <div class="container">
         <a-drawer
             placement="left"
-            :closable="false"
+            :closable="true"
             :open="open"
             :get-container="true"
             :style="{ position: 'relative', backgroundColor: '#1A1A1A', color: '#fff', height: '100vh'}"
@@ -76,11 +99,60 @@ function onClose() {
 
 <style scoped>
 
-.button-container {
+.top-nav-bar {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: center;
+    background-color: #1A1A1A;
+    color: #fff;
+    padding: 10px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.353);
+}
+
+@media (min-width: 1024px) {
+    .top-nav-bar {
+        display: none;
+    }
+}
+
+.top-nav-bar a {
+    color: #fff;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+.drawer-indicator-bar {
     position: fixed;
-    top: 50%;
-    left: 0;
-    z-index: 1000;
+    width: 100px;
+    height: 100%;
+    background-color: rgb(40, 40, 40);
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.353);
+    display: flex;
+    z-index: 1;
+}
+
+.drawer-indicator-bar:hover {
+    background-color: rgb(50, 50, 50);
+    transform: scaleX(1.5);
+    align-items: center;
+    justify-content: center;
+}
+
+@media (max-width: 768px) {
+    .drawer-indicator-bar {
+        width: 50px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .drawer-indicator-bar {
+        visibility: hidden;
+    }
+
+    
 }
 
 .container {
@@ -89,8 +161,9 @@ function onClose() {
     align-items: center;
 }
 .show-drawer-btn {
-    position: fixed;
     padding: 15px;
+    background-color: #00000000;
+    border: none;
 }
 
 .show-drawer-btn:hover {
