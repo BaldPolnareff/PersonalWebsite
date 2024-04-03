@@ -101,6 +101,8 @@ function onClose() {
 
 .top-nav-bar {
     display: flex;
+    width: 100%;
+    z-index: 1;
     justify-content: center;
     flex-direction: row;
     flex-wrap: wrap;
