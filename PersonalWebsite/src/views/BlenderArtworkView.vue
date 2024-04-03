@@ -95,7 +95,20 @@ onMounted( async () => {
     justify-content: center;
     grid-template-columns: repeat(2, 0.05fr); /* Set 3 columns with equal width */
     margin-top: 50px;
-    margin-left: 80px;
+    margin-left: 110px;
     padding: 100px 50px 30px 30px;
+}
+
+@media screen and (max-width: 1024px){
+    .image-gallery-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .gallery-container {
+        padding: 20px;
+    }
 }
 </style>

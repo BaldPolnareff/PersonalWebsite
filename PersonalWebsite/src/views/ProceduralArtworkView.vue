@@ -79,6 +79,7 @@ onMounted(async () => {
     gap: 20px;
     max-width: 1800px;
     margin-bottom: 50px;
+    margin-left: 50px;
 }
 
 .shader {
@@ -92,5 +93,42 @@ onMounted(async () => {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+@media screen and (max-width: 1800px){
+
+    .gallery-container {
+        height: auto;
+        padding: 30px;
+    }
+    .shaders-wrapper {
+        display: flex;
+        flex-direction: column;
+        padding: 40px;
+    }
+
+    .shader {
+        width: 800px;
+        height: 400px;
+    }
+}
+
+@media screen and (max-width: 1000px){
+    .shaders-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .shader {
+        width: 100%;
+        height: 400px;
+    }
+
+    .gallery-container {
+        padding: 20px;
+        height: auto;
+    }
 }
 </style>
