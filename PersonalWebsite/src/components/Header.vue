@@ -19,15 +19,7 @@ const iconStyleOnHover = 'color: #d88fff; font-size: 3.5rem; transform: scale(1.
 <template>
     <div class="header-container">
         <a-typography-title :level="1">Giorgio De Trane</a-typography-title>
-        <a-avatar 
-            :src="propicUrl" 
-            class="avatar"
-            :size=200
-        >
-            <template #icon>
-                <AntDesignOutlined />
-            </template>
-        </a-avatar>
+            <img :src="propicUrl" class="avatar" alt="Profile picture" style="object-fit: cover; width: 200px; border-radius: 100%;">
         <h3>Software Developer</h3>
         <h4>Zürich 🇨🇭</h4>
         <div class="social-wrapper">
