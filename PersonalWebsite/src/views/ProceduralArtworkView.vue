@@ -95,7 +95,7 @@ onMounted(async () => {
     align-items: center;
 }
 
-@media screen and (max-width: 1024px){
+@media screen and (max-width: 1800px){
 
     .gallery-container {
         height: auto;
@@ -108,8 +108,27 @@ onMounted(async () => {
     }
 
     .shader {
-        width: 500px;
-        height: 200px;
+        width: 800px;
+        height: 400px;
+    }
+}
+
+@media screen and (max-width: 1000px){
+    .shaders-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .shader {
+        width: 100%;
+        height: 400px;
+    }
+
+    .gallery-container {
+        padding: 20px;
+        height: auto;
     }
 }
 </style>
