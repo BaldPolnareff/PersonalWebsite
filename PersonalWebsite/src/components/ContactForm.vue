@@ -1,5 +1,8 @@
 <script setup lang="ts">
 import { ref } from 'vue';
+import axios from 'axios';
+
+const envs = import.meta.env;
 
 const name = ref<string>('');
 const email = ref<string>('');
@@ -34,7 +37,7 @@ function validateMessage(message: string): boolean {
     return message.length <= 500;
 }
 
-function submitForm() {
+async function submitForm() {
     if (!validateEmail(email.value)) {
         alert('Invalid email');
         return;
@@ -47,7 +50,26 @@ function submitForm() {
         alert('Message must be less than 500 characters');
         return;
     }
-    console.log(name.value, email.value, message.value);
+    const data = {
+        name: name.value,
+        email: email.value,
+        message: message.value,
+    };
+
+    try {
+        const response = await axios.post(`${envs.VITE_SERVER_BASE_URL}/send-message`, data);
+        if (response.status === 200) {
+            alert('Message sent successfully');
+            clearForm();
+        }
+    } catch (error) {
+        if (axios.isAxiosError(error) && error.response) {
+            alert('Error sending message, with code: ' + error.response.status + ' and message: ' + error.response.data.message);
+        } else {
+            alert('Error sending message');
+        }
+    }
+    
 }
 
 function clearForm() {

@@ -37,7 +37,7 @@ const init = async () => {
                 email, 
                 message, 
                 name
-            } = JSON.parse(request.payload as string) as {
+            } = request.payload as {
                 email: string;
                 message: string;
                 name: string;
@@ -46,11 +46,8 @@ const init = async () => {
 
             try {
                 const response = await axios.post(`https://api.telegram.org/bot${process.env.TELEGRAM_BOT_TOKEN}/sendMessage`, {
-                    method: 'POST',
-                    data: {
                         chat_id: process.env.TELEGRAM_CHAT_ID,
                         text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`
-                    }
                 });
                 console.log(response.data);
                 return h.response('Message sent').code(200);
