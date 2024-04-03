@@ -133,4 +133,14 @@ button {
     border: none;
 }
 
+@media screen and (max-width: 1024px){
+    .contact-form-container {
+        padding: 60px;
+    }
+
+    form {
+        width: 100%;
+    }
+}
+
 </style>
