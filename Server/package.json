@@ -5,7 +5,7 @@
     "main": "index.js",
     "scripts": {
         "dev": "npx tsc-watch --onSuccess \"node ./dist/index.js\"",
-        "build": "tsc"
+        "build": "npx tsc"
     },
     "author": "",
     "license": "ISC",
