@@ -15,7 +15,8 @@
         "dotenv": "^16.4.5",
         "joi": "^17.12.2", 
         "tsc-watch": "^6.2.0", 
-        "typescript": "^5.4.3"
+        "typescript": "^5.4.3", 
+        "ts-node": "^10.9.2"
     },
     "devDependencies": {
         "ts-node": "^10.9.2",
