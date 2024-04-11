@@ -1,7 +1,5 @@
 <script setup lang="ts">
 import { ref, defineProps } from 'vue';
-import VLazyImage from 'v-lazy-image';
-import { FileImageOutlined } from '@ant-design/icons-vue';
 
 const hoverMessage: string = 'Full res'; 
 
@@ -19,14 +17,18 @@ const showHoverMessage = ref<boolean>(false);
             <template #title>
                 {{ hoverMessage }}
             </template>
-            <VLazyImage 
-                v-if="!props.isLoading" 
-                :src="props.imgUrl"
-                src-placeholder="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Suzanne.png/640px-Suzanne.png"
-                alt="Blender Artwork" 
+            <img
+                v-if="!props.isLoading"
+                v-lazy="{
+                    src: props.imgUrl,
+                    placeholder: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Suzanne.png/640px-Suzanne.png',
+                    error: 'https://upload.wikimedia.org/wikipedia/commons/b/ba/Error-logo.png'
+                }"
+                alt="Blender Artwork"
+                class="v-lazy-image"
                 @mouseover="showHoverMessage = true"
                 @mouseleave="showHoverMessage = false"
-            />
+            >
         </a-tooltip>
     </main>
 </template>
@@ -47,14 +49,10 @@ const showHoverMessage = ref<boolean>(false);
     height: 400px;
     border-radius: 10px;
     object-fit: cover;
-    filter: blur(5px);
     will-change: filter;
     transition: filter 0.7s;
 }
 
-.v-lazy-image-loaded {
-    filter: blur(0);
-}
 
 .v-lazy-image:hover {
     filter: blur(10px);

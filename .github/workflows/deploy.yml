@@ -40,7 +40,6 @@ jobs:
         # run: cd PersonalWebsite && npm install
         run: |
           cd PersonalWebsite
-          npm install v-lazy-image -g
           npm ci
       - name: Setup variables
         run: |
