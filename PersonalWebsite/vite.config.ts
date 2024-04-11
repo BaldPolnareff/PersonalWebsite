@@ -22,4 +22,5 @@ export default defineConfig({
       external: 'v-lazy-image'
     }
   },
+  base: '/PersonalWebsite/'
 })
