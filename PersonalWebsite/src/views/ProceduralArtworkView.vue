@@ -11,9 +11,9 @@ const loadingShaders = ref<boolean>(false);
 
 async function fetchShaders() {
     loadingShaders.value = true;
-    const { data, error } = await axios.get(`https://www.shadertoy.com/api/v1/shaders/query/BaldPolnareff?key=${VITE_SHADERTOY_API_KEY}`)
-    if (error) {
-        errorMessage.value = error.message;
+    const { data } = await axios.get(`https://www.shadertoy.com/api/v1/shaders/query/BaldPolnareff?key=${VITE_SHADERTOY_API_KEY}`)
+    if (!data) {
+        errorMessage.value = "No response";
     } else {
         for (let i = 0; i < data.Results.length; i++) {
             shadersIds.value.push(data.Results[i]);
