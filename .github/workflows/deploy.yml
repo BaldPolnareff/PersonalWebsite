@@ -53,6 +53,7 @@ jobs:
           echo VITE_POLITO_LOGO_URL=https://knryjhrzmolnpodbfpgh.supabase.co/storage/v1/object/sign/assets/svg/polito_logo_new.svg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJhc3NldHMvc3ZnL3BvbGl0b19sb2dvX25ldy5zdmciLCJpYXQiOjE3MTIwNTc5ODIsImV4cCI6MjAyNzQxNzk4Mn0.FrB030eWP3jrwuucG-vyDYcjPZ8KrnVgEbhAw-4lfAQ&t=2024-04-02T11%3A39%3A42.438Z >> .env.local
           echo VITE_BEYOND_GRAVITY_LOGO_URL=https://knryjhrzmolnpodbfpgh.supabase.co/storage/v1/object/sign/assets/svg/beyond_gravity_logo.svg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJhc3NldHMvc3ZnL2JleW9uZF9ncmF2aXR5X2xvZ28uc3ZnIiwiaWF0IjoxNzEyMDU4NDQxLCJleHAiOjIwMjc0MTg0NDF9.piJfTNZeiZVE6cTBm82s_sPB4yGziKK8yuws9Q1rkn0&t=2024-04-02T11%3A47%3A21.468Z >> .env.local
           echo VITE_SERVER_BASE_URL=http://oceanodigitale.duckdns.org >> .env.local
+          cat .env.local
       - name: Build
         run: cd PersonalWebsite && npm run build
       - name: Setup Pages
@@ -62,6 +63,7 @@ jobs:
         with:
           # Upload dist folder
           path: 'PersonalWebsite/dist'
+          run: ls PersonalWebsite/dist
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
