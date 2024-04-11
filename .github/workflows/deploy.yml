@@ -36,7 +36,8 @@ jobs:
           node-version: 20
           cache: 'npm'
       - name: Install dependencies
-        run: cd PersonalWebsite && npm ci
+        # run: cd PersonalWebsite && npm ci
+        run: cd PersonalWebsite && npm install
       - name: Build
         run: cd PersonalWebsite && npm run build
       - name: Setup Pages
