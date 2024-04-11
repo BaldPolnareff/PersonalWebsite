@@ -38,7 +38,7 @@ jobs:
       - name: Install dependencies
         run: cd PersonalWebsite && npm ci
       - name: Build
-        run: npm run build
+        run: cd PersonalWebsite && npm run build
       - name: Setup Pages
         uses: actions/configure-pages@v4
       - name: Upload artifact
