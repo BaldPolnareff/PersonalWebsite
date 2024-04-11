@@ -40,6 +40,7 @@ jobs:
         # run: cd PersonalWebsite && npm install
         run: |
           cd PersonalWebsite
+          npm install v-lazy-image -g
           npm ci
       - name: Setup variables
         run: |
@@ -63,7 +64,6 @@ jobs:
         with:
           # Upload dist folder
           path: 'PersonalWebsite/dist'
-          run: ls PersonalWebsite/dist
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
