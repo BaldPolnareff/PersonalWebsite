@@ -37,7 +37,10 @@ jobs:
           cache: 'npm'
       - name: Install dependencies
         # run: cd PersonalWebsite && npm ci
-        run: cd PersonalWebsite && npm install
+        # run: cd PersonalWebsite && npm install
+        run: |
+          cd PersonalWebsite
+          npm ci
       - name: Setup variables
         run: |
           cd PersonalWebsite
