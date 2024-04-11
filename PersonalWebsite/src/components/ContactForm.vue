@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import axios from 'redaxios';
+import axios from 'axios';
 
 const envs = import.meta.env;
 

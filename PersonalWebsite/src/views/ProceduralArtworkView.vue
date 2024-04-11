@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
-import axios from 'redaxios';
+import axios from 'axios';
 
 const envs = import.meta.env;
 const VITE_SHADERTOY_API_KEY = envs.VITE_SHADERTOY_API_KEY;
